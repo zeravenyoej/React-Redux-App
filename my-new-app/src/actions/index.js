@@ -10,8 +10,7 @@ export const getNewQuote = () => dispatch => {
     dispatch({ type: FETCH_QUOTE_START })
     axios.get('https://breaking-bad-quotes.herokuapp.com/v1/quotes')
         .then((res)=>{
-            console.log(res.data)
-            dispatch({ type: FETCH_QUOTE_SUCCESS, payload: res })
+            dispatch({ type: FETCH_QUOTE_SUCCESS, payload: res['data'][0] })
         })
         .catch((err)=>{
             console.log('error: ', err)

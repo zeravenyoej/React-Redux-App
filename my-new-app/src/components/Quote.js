@@ -11,8 +11,12 @@ const Quote = (props) => {
 
     return (
         <div>
-            The quote will go here
-        
+            {props.quote ? (
+                `${props.quote.quote} -${props.quote.author}`
+                ):(
+                    <p>Hit the button below</p>
+                )}
+
             <div>
                 <br/>
                 <button onClick={quoteHandler}>Get a New Quote!</button>
@@ -21,9 +25,9 @@ const Quote = (props) => {
     )
 };
 
-const mapStateToProps = () => {
+const mapStateToProps = (state) => {
     return {
-        quote: ''
+        quote: state.quote
     };
 };
 

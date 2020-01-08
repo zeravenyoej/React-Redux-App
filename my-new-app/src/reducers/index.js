@@ -1,22 +1,29 @@
 import { FETCH_QUOTE_START, FETCH_QUOTE_SUCCESS, FETCH_QUOTE_FAIL } from '../actions/';
 
 const initialState = {
-    quote: 'Hit the button below!'
+    quote: '', 
+    isFetching: false, 
+    error: ''
 }
 
 export const reducer = (state = initialState, action) => {
     switch (action.type){
         case FETCH_QUOTE_START: 
             return {
-                ...state
+                ...state, 
+                isFetching: true,
+                error: ''
             };
         case FETCH_QUOTE_SUCCESS:
             return {
-                ...state
+                ...state, 
+                isFetching: false, 
+                quote: action.payload
             };
         case FETCH_QUOTE_FAIL: 
             return {
-                ...state
+                ...state,
+                error: action.payload
             };
         default:
             return state;
