@@ -12,7 +12,10 @@ const Quote = (props) => {
     return (
         <div>
             {props.quote ? (
-                `${props.quote.quote} -${props.quote.author}`
+                <div>
+                    <p id='quote'>"{props.quote.quote}"</p> 
+                    <p className='author'>-{props.quote.author}</p>
+                </div>
                 ):(
                     <p>Hit the button below</p>
                 )}
