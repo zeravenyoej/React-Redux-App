@@ -1,25 +1,37 @@
-import React from 'react';
-import { FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAIL } from '../Actions/actions';
+import { FETCH_QS_START, FETCH_QS_SUCCESS, FETCH_QS_FAIL, REVEAL_ANSWERS } from '../Actions/actions';
 
 
 const initialState = {
-
+    isFetching: false, 
+    error: '',
+    data: '',
+    revealAnswer: false
 };
 
 const reducer = (state = initialState, action) => {
     switch(action.type){
-        case FETCH_DATA_START:
+        case FETCH_QS_START:
             return {
-                ...state
+                ...state, 
+                isFetching: true,
             };
-        case FETCH_DATA_SUCCESS:
+        case FETCH_QS_SUCCESS:
             return {
-                ...state
+                ...state, 
+                isFetching: false,
+                data: action.payload, 
+                revealAnswer: false
             };
-        case FETCH_DATA_FAIL:
+        case FETCH_QS_FAIL:
             return {
-                ...state
+                ...state,
+                error: action.payload
             };
+        case REVEAL_ANSWERS:
+            return {
+                ...state,
+                revealAnswer: true
+            }
         default: 
             return state;
     }

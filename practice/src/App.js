@@ -1,12 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Movies from './Components/Movies';
 
 function App() {
   return (
     <div className="App">
-     
-      APP GOES HERE
+      <h1>Difficult Movie Trivia</h1>
+      <Movies/>
     </div>
   );
 }
