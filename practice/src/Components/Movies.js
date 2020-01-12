@@ -19,19 +19,16 @@ const Movies = (props) => {
 
     return (
         <div>
-            {props.data.length ? (
+            {props.data ? (
                 props.data.map((item, index) => (
                     <div key={index}>
-                        <ol>
-                            <Question 
-                                item={item} 
-                                getNewQuestions={props.getNewQuestions}/>
-                        </ol>
-                            <Answers
-                                correctAnswer={item.correct_answer} 
-                                incorrectAnswers={item.incorrect_answers}
-                                revealAnswer={props.revealAnswer}
-                            />    
+                        <Question 
+                            item={item} 
+                            getNewQuestions={props.getNewQuestions}/>
+                        <Answers
+                            correctAnswer={item.correct_answer} 
+                            incorrectAnswers={item.incorrect_answers}
+                            revealAnswer={props.revealAnswer}/>    
                     </div>
                     ))
             ):(
